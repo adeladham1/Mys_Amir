@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/Normalize.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="احصل على أفضل كوبونات الخصم للمنتجات والخدمات."
+    />
+    <meta name="keywords" content="كوبونات, خصم, تسوق, عروض" />
+    <meta name="author" content="اسم الموقع" />
+    <title>موقع بيع كوبونات الخصم</title>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-bold">موقع بيع كوبونات الخصم</h1>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <!-- Hamburger Icon (SVG) -->
+            <svg
+              id="hamburger-icon"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 12h16"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 18h16"
+              ></path>
+            </svg>
+            <!-- Close Icon (Hidden by Default) -->
+            <svg
+              id="close-icon"
+              class="hidden w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Navigation Links -->
+        <nav id="navigation-links" class="hidden md:flex gap-8">
+          <a href="index.html" class="hover:text-yellow-300 transition-colors"
+            >الرئيسية</a
+          >
+          <a href="#" class="hover:text-yellow-300 transition-colors"
+            >عن الموقع</a
+          >
+          <a href="#" class="hover:text-yellow-300 transition-colors"
+            >تواصل معنا</a
+          >
+          <a href="login.html" class="hover:text-yellow-300 transition-colors"
+            >تسجيل الدخول</a
+          >
+          <a
+            href="register.html"
+            class="hover:text-yellow-300 transition-colors"
+            >انشاء حساب</a
+          >
+        </nav>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="max-h-0 overflow-hidden transition-max-height duration-500 ease-in-out bg-blue-800"
+      >
+        <nav class="px-4 pt-4 pb-6 space-y-4">
+          <a
+            href="index.html"
+            class="block text-white hover:text-yellow-300 transition-colors"
+            >الرئيسية</a
+          >
+          <a
+            href="#"
+            class="block text-white hover:text-yellow-300 transition-colors"
+            >عن الموقع</a
+          >
+          <a
+            href="#"
+            class="block text-white hover:text-yellow-300 transition-colors"
+            >تواصل معنا</a
+          >
+          <a
+            href="login.html"
+            class="block hover:text-yellow-300 transition-colors"
+            >تسجيل الدخول</a
+          >
+          <a
+            href="register.html"
+            class="block hover:text-yellow-300 transition-colors"
+            >انشاء حساب</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      mobileMenuButton.addEventListener("click", () => {
+        const isMenuOpen = !mobileMenu.classList.contains("max-h-0");
+
+        // Toggle the mobile menu visibility with slide-down transition
+        if (isMenuOpen) {
+          mobileMenu.style.maxHeight = "0";
+          closeIcon.classList.add("hidden");
+          hamburgerIcon.classList.remove("hidden");
+        } else {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+          closeIcon.classList.remove("hidden");
+          hamburgerIcon.classList.add("hidden");
+        }
+        mobileMenu.classList.toggle("max-h-0");
+      });
+
+      // Ensure the max-height is initially set to 0 to avoid the menu appearing instantly
+      window.addEventListener("load", () => {
+        mobileMenu.style.maxHeight = "0";
+      });
+    </script>
+    <main class="container mx-auto px-6 py-10">
+      <section class="bg-white p-8 rounded-xl shadow-xl w-full">
+        <h2 class="text-3xl font-bold text-center text-gray-700 mb-8">
+          إنشاء حساب
+        </h2>
+        <form method="POST">
+          <div class="relative mb-6">
+            <label
+              for="first_name"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >الاسم الأول</label
+            >
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل الاسم الأول"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="last_name"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >الاسم الثاني</label
+            >
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل الاسم الثاني"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >البريد الإلكتروني</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل البريد الإلكتروني"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >كلمة المرور</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل كلمة المرور"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="confirm_password"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >تأكيد كلمة المرور</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أعد إدخال كلمة المرور"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="phone_number"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >رقم الهاتف</label
+            >
+            <input
+              type="text"
+              id="phone_number"
+              name="phone_number"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل رقم الهاتف"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="alternate_number"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >رقم هاتف آخر</label
+            >
+            <input
+              type="text"
+              id="alternate_number"
+              name="alternate_number"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              placeholder="أدخل رقم هاتف آخر"
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="birthdate"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >تاريخ الميلاد</label
+            >
+            <input
+              type="date"
+              id="birthdate"
+              name="birthdate"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+              required
+            />
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="gender"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >النوع</label
+            >
+            <select
+              id="gender"
+              name="gender"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+            >
+              <option value="male">ذكر</option>
+              <option value="female">أنثى</option>
+            </select>
+          </div>
+          <div class="relative mb-6">
+            <label
+              for="account_type"
+              class="block text-sm font-medium text-gray-600 mb-2"
+              >نوع الحساب</label
+            >
+            <select
+              id="account_type"
+              name="account_type"
+              class="block w-full px-4 py-3 text-gray-700 bg-gray-200 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition duration-300"
+            >
+              <option value="seller">بائع</option>
+              <option value="buyer">مشتري</option>
+            </select>
+          </div>
+          <div class="relative mb-6">
+            <label class="block text-sm font-medium text-gray-600 mb-2">
+              <input
+                type="checkbox"
+                name="terms"
+                id="terms"
+                class="form-checkbox h-5 w-5 accent-green-500 rounded focus:ring-2 focus:ring-green-500 transition duration-150 ease-in-out"
+              />
+              أوافق على <a href="#" class="text-blue-500">الشروط والأحكام</a>
+            </label>
+          </div>
+          <button
+            type="submit"
+            class="block w-full py-3 text-white bg-green-500 hover:bg-green-600 rounded-full transition duration-300"
+          >
+            إنشاء حساب
+          </button>
+        </form>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white shadow-md mt-10">
+      <div class="container mx-auto px-6 py-6 text-center">
+        <p class="text-gray-300 mb-4">
+          © 2024 جميع الحقوق محفوظة. موقع بيع كوبونات الخصم.
+        </p>
+        <div class="space-x-6">
+          <a href="#" class="hover:text-yellow-300 transition-colors"
+            >شروط الاستخدام</a
+          >
+          <a href="#" class="hover:text-yellow-300 transition-colors"
+            >سياسة الخصوصية</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
